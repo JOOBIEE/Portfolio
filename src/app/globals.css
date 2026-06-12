@@ -1,0 +1,396 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F7F7F2;
+  --surface: #EFEFEA;
+  --border: #E0E0D8;
+  --border-subtle: #EBEBE4;
+  --text-primary: #0A0A0A;
+  --text-secondary: #4A4A45;
+  --text-muted: #8A8A82;
+  --accent: #1A1A1A;
+  --mode-accent: #0A0A0A;
+  --mode-tag: #E8E8E2;
+}
+
+[data-theme="dark"] {
+  --background: #070A0F;
+  --surface: #0D1117;
+  --border: #1E2530;
+  --border-subtle: #161C24;
+  --text-primary: #DCE6FF;
+  --text-secondary: #8A9BB8;
+  --text-muted: #4A5568;
+  --accent: #4D7EFF;
+  --mode-accent: #4D7EFF;
+  --mode-tag: #0D1117;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), sans-serif;
+  transition: background-color 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Typography scale */
+.text-display {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.text-heading {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.text-subheading {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.text-body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.text-mono {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.875rem;
+}
+
+img[alt="Next.js logo"],
+a[href="https://nextjs.org"] {
+  display: none !important;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+}
+
+@media (min-width: 769px) {
+  .mobile-only { display: none !important; }
+}
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-two-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   GLOBAL MOBILE FIXES
+   ============================================ */
+
+/* Hide desktop nav on mobile, show mobile nav */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   HOMEPAGE
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Three mode entry cards — stack vertically */
+  .home-mode-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+
+  /* Hero words — smaller on mobile */
+  .text-display {
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+  }
+}
+
+/* ============================================
+   SYSTEMS PAGE
+   ============================================ */
+
+@media (max-width: 900px) {
+  /* Three columns become one */
+  .systems-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Project index sits above narrative on mobile */
+  .systems-index-sticky {
+    position: static !important;
+  }
+
+  /* Meta column goes below narrative */
+  .systems-meta-sticky {
+    position: static !important;
+  }
+}
+
+/* ============================================
+   NARRATIVES PAGE
+   ============================================ */
+
+@media (max-width: 900px) {
+  /* Two columns become one */
+  .narratives-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Essay list sits above reader */
+  .narratives-list-sticky {
+    position: static !important;
+  }
+
+  /* Reader gets full width — most important */
+  .narratives-reader {
+    max-width: 100% !important;
+  }
+}
+
+/* ============================================
+   PERCEPTION PAGE
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Case study cards — single column */
+  .perception-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Before/after inside card — stack */
+  .perception-card-flow {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Hide arrow on mobile */
+  .perception-card-arrow {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   PROFILE PAGE
+   ============================================ */
+
+@media (max-width: 900px) {
+  .profile-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Unstick left column */
+  .profile-left-sticky {
+    position: static !important;
+  }
+
+  /* Image smaller on mobile */
+  .profile-image {
+    width: 140px !important;
+    height: 140px !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+/* ============================================
+   ARCHIVE PAGE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .archive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Filters go above cards */
+  .archive-filters-sticky {
+    position: static !important;
+  }
+
+  /* Filters become horizontal scroll row */
+  .archive-filters-types {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+}
+
+/* ============================================
+   SERVICES PAGE
+   ============================================ */
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-two-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Add-on row stacks */
+  .services-addon-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* ============================================
+   GRAPH PAGE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .graph-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .graph-header-desc {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   MODALS AND PANELS
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Case study panel — full screen */
+  .case-study-panel {
+    width: 100vw !important;
+  }
+
+  /* Archive reader panel — full screen */
+  .archive-reader-panel {
+    width: 100vw !important;
+    padding: 24px 20px 60px !important;
+  }
+
+  /* Form row stacks */
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    text-align: center !important;
+  }
+
+  .footer-links-left {
+    justify-content: center !important;
+  }
+
+  .footer-links-right {
+    justify-content: center !important;
+  }
+}
+
+/* ============================================
+   PAGE WRAPPER PADDING
+   ============================================ */
+
+@media (max-width: 768px) {
+  .page-content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 80px !important;
+  }
+}
+
+/* ============================================
+   GENERAL SPACING
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Section headers */
+  .section-header {
+    margin-bottom: 32px !important;
+  }
+
+  /* Cards padding */
+  .card-padded {
+    padding: 16px !important;
+  }
+}
