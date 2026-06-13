@@ -122,34 +122,5 @@ export const caseStudies: CaseStudy[] = [
   result:
     "Stronger brand identity. Increased perceived expertise. Content now drives conversation, not just visibility.",
 },
-  {
-    id: "personal-brand",
-    title: "Personal Brand",
-    category: "Identity Design",
-    year: "2023",
-    tags: ["Identity", "Culture", "Human Behavior"],
-    summary:
-      "Transformed an undefined online presence into a recognized voice in a specific domain.",
-    before: {
-      label: "Undefined presence",
-      description:
-        "Active online but unfocused. Posting across topics. Followers couldn't describe what they stood for. No clear reason to follow.",
-    },
-    intervention: {
-      steps: [
-        "Defined the intersection — what topic, what angle, what audience",
-        "Deleted content that didn't fit the defined position",
-        "Committed to one idea per week, explored deeply",
-        "Engaged only in conversations adjacent to the defined domain",
-        "Made the positioning visible in every touchpoint",
-      ],
-    },
-    after: {
-      label: "Recognized domain voice",
-      description:
-        "Followers could describe exactly what they followed for. Opportunities arrived pre-filtered. Collaborations from people aligned with the defined work.",
-    },
-    result: "Clarity of position created clarity of opportunity.",
-    year: "2023",
-  },
+  
 ];
