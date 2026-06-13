@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, delay, ease: [0.4, 0, 0.2, 1] },
-});
-
 function openWhatsApp() {
   const url = `https://wa.me/${services.whatsappNumber}?text=${encodeURIComponent(
     services.whatsappMessage
@@ -27,7 +21,7 @@ export default function ServicesPage() {
       }}
     >
       {/* Hero */}
-      <motion.div {...fadeUp(0)} style={{ maxWidth: "640px" }}>
+      <motion.div style={{ maxWidth: "640px" }}>
         <p
           className="text-label"
           style={{ color: "var(--text-muted)", marginBottom: "16px" }}
@@ -62,7 +56,7 @@ export default function ServicesPage() {
       </motion.div>
 
       {/* Monthly packages */}
-      <motion.div {...fadeUp(0.1)}>
+      <motion.div>
         <div
           style={{
             marginBottom: "32px",
@@ -96,8 +90,7 @@ export default function ServicesPage() {
           {services.packages.map((pkg, i) => (
             <motion.div
               key={pkg.id}
-              {...fadeUp(0.1 + i * 0.08)}
-              style={{
+                            style={{
                 background: pkg.badge ? "var(--surface)" : "transparent",
                 border: "1px solid",
                 borderColor: pkg.badge
@@ -333,7 +326,7 @@ export default function ServicesPage() {
       </motion.div>
 
       {/* One-time services */}
-      <motion.div {...fadeUp(0.15)}>
+      <motion.div>
         <div
           style={{
             marginBottom: "32px",
@@ -366,7 +359,7 @@ export default function ServicesPage() {
           {services.oneTime.map((item, i) => (
             <motion.div
               key={item.id}
-              {...fadeUp(0.15 + i * 0.08)}
+              
               style={{
                 background: "var(--surface)",
                 border: "1px solid var(--border)",
@@ -507,7 +500,7 @@ export default function ServicesPage() {
       </motion.div>
 
       {/* Add-ons */}
-      <motion.div {...fadeUp(0.2)}>
+      <motion.div>
         <div
           style={{
             marginBottom: "32px",
@@ -539,7 +532,6 @@ export default function ServicesPage() {
           {services.addOns.map((addon, i) => (
             <motion.div
               key={addon.id}
-              {...fadeUp(0.2 + i * 0.06)}
               className="services-addon-row"
               style={{
                 background: "var(--surface)",
@@ -685,7 +677,7 @@ export default function ServicesPage() {
       </motion.div>
 
       {/* Starter services */}
-      <motion.div {...fadeUp(0.25)}>
+      <motion.div>
         <div
           style={{
             marginBottom: "24px",
@@ -753,7 +745,7 @@ export default function ServicesPage() {
 
       {/* CTA block */}
       <motion.div
-        {...fadeUp(0.3)}
+        
         style={{
           background: "var(--surface)",
           border: "1px solid var(--border)",
