@@ -24,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
   id: "exploreland-homes",
   title: "Exploreland Homes",
   category: "Lifestyle Branding",
-  year: "2024",
+  year: "2026",
   tags: ["Aspirational Content", "Real Estate", "Emotional Positioning"],
   summary:
     "Transformed property marketing from listing-focused communication to lifestyle-driven emotional storytelling.",
@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
   id: "imagesxpert",
   title: "ImagesXpert Media",
   category: "Creative Identity",
-  year: "2024",
+  year: "2026",
   tags: ["Visual Storytelling", "Photography", "Brand Personality"],
   summary:
     "Shifted photography brand from service provider to personality-driven visual experience with strong narrative identity.",
@@ -92,7 +92,7 @@ export const caseStudies: CaseStudy[] = [
   id: "exploreland-farms",
   title: "Exploreland Farms",
   category: "Narrative Positioning",
-  year: "2024",
+  year: "2026",
   tags: ["Storytelling", "Agriculture", "Content Strategy"],
   summary:
     "Repositioned agriculture from basic farming to intelligent, narrative-driven environmental and economic storytelling.",

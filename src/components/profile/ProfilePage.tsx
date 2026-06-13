@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { Link, Mail } from "lucide-react";
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, delay, ease: [0.4, 0, 0.2, 1] },
-});
-
 export default function ProfilePage() {
   return (
     <div
@@ -26,7 +20,11 @@ export default function ProfilePage() {
         className="profile-left-sticky"
         style={{ position: "sticky", top: "80px" }}
       >
-        <motion.div {...fadeUp(0)}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0, ease: "easeOut" }}
+        >
           {/* Profile image */}
           <div
             className="profile-image"
@@ -138,7 +136,7 @@ export default function ProfilePage() {
               { label: "LinkedIn", href: profile.links.linkedin },
             ].map((link) => (
               
-           <a     key={link.label}
+              <a  key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -211,7 +209,11 @@ export default function ProfilePage() {
         }}
       >
         {/* Current focus */}
-        <motion.div {...fadeUp(0.1)}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+        >
           <DossierSection label="Current Focus">
             <div
               style={{
@@ -256,7 +258,11 @@ export default function ProfilePage() {
         </motion.div>
 
         {/* Tools */}
-        <motion.div {...fadeUp(0.15)}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+        >
           <DossierSection label="Tools">
             <div
               style={{
@@ -286,7 +292,11 @@ export default function ProfilePage() {
         </motion.div>
 
         {/* Active research */}
-        <motion.div {...fadeUp(0.2)}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        >
           <DossierSection label="Active Research Areas">
             <div
               style={{
@@ -329,7 +339,11 @@ export default function ProfilePage() {
         </motion.div>
 
         {/* Operating principles */}
-        <motion.div {...fadeUp(0.25)}>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+        >
           <DossierSection label="Operating Principles">
             <div
               style={{
@@ -343,7 +357,10 @@ export default function ProfilePage() {
                   key={i}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + i * 0.07 }}
+                  transition={{
+                    delay: 0.3 + i * 0.07,
+                    ease: "easeOut",
+                  }}
                   style={{
                     padding: "20px",
                     borderRadius: "10px",
