@@ -394,3 +394,8 @@ a[href="https://nextjs.org"] {
     padding: 16px !important;
   }
 }
+@media (max-width: 768px) {
+  .proof-strip-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

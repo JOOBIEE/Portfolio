@@ -13,7 +13,7 @@ export default function Profile() {
             Developer Manifest
           </p>
           <h1 className="text-heading" style={{ color: "var(--text-primary)" }}>
-            You're here. Welcome Chief.
+            I develop products for founders who need to scale — not just fast, but properly. I analyse the problem, show the thinking, then build and deploy systematically.
           </h1>
           <p className="text-body" style={{ color: "var(--text-secondary)", marginTop: "8px", maxWidth: "480px" }}>
             Now, lets see if I impress you.

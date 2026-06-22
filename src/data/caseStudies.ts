@@ -116,7 +116,7 @@ export const caseStudies: CaseStudy[] = [
   after: {
     label: "Authoritative agricultural voice",
     description:
-      "Content now positions the brand as both a thought leader and practical guide. Audience engages with ideas, not just information. Posts feel distinct, memorable, and grounded in real-world relevance.",
+      "Investors from Ghana want Exploreland Farms to be their knowledge partner in Nigeria. Planting 5,000 trees across West Africa, Engagement was sparse — one comment across five posts. Now averaging five quality comments per post.",
   },
 
   result:

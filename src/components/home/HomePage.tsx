@@ -6,6 +6,8 @@ import { useTheme } from "@/components/ThemeProvider";
 import { useRouter } from "next/navigation";
 import NetworkCanvas from "./NetworkCanvas";
 import ModeNode from "./ModeNode";
+import ProofStrip from "./ProofStrip";
+import ServicesPreview from "./ServicesPreview";
 
 type Mode = "systems" | "narratives" | "perception";
 
@@ -47,6 +49,7 @@ export default function HomePage() {
         flexDirection: "column",
         justifyContent: "center",
         position: "relative",
+        paddingBottom: "64px",
       }}
     >
       {/* Network background */}
@@ -68,7 +71,7 @@ export default function HomePage() {
           zIndex: 1,
           display: "flex",
           flexDirection: "column",
-          gap: "64px",
+          gap: "56px",
         }}
       >
         {/* Hero words */}
@@ -111,10 +114,27 @@ export default function HomePage() {
             style={{
               color: "var(--text-muted)",
               marginTop: "24px",
-              maxWidth: "440px",
+              maxWidth: "480px",
             }}
           >
             Every outcome is downstream of a system.
+          </motion.p>
+
+          {/* Offer line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="text-body"
+            style={{
+              color: "var(--text-secondary)",
+              marginTop: "12px",
+              maxWidth: "480px",
+              lineHeight: 1.7,
+            }}
+          >
+            I build the products, write the thinking, and shape the
+            perception behind brands that need to move fast.
           </motion.p>
         </motion.div>
 
@@ -122,7 +142,7 @@ export default function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="home-mode-grid"
           style={{
             display: "grid",
@@ -144,11 +164,17 @@ export default function HomePage() {
           ))}
         </motion.div>
 
+        {/* Proof strip */}
+        <ProofStrip />
+
+        {/* Services preview */}
+        <ServicesPreview />
+
         {/* Bottom links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -157,14 +183,13 @@ export default function HomePage() {
         >
           {[
             { label: "View operator profile", path: "/profile" },
-            { label: "Work with me", path: "/services" },
             { label: "Explore the identity graph", path: "/graph" },
           ].map((item, i) => (
             <motion.div
               key={item.path}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 + i * 0.08 }}
+              transition={{ duration: 0.5, delay: 1.1 + i * 0.08 }}
             >
               <button
                 onClick={() => router.push(item.path)}

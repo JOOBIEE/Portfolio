@@ -12,6 +12,88 @@ export type Essay = {
 
 export const essays: Essay[] = [
   {
+    id: "trust",
+    title: "Trust",
+    theme: "Systems Thinking",
+    readingTime: "3 min read",
+    publishedDate: "June 2026",
+    keyInsight:
+      "Trust is failing",
+    tags: ["Infrastructure", "Trust", "Systems Thinking"],
+    substackUrl: "https://open.substack.com/pub/thehumanalgorythm/p/trust?r=5zq6aw&utm_campaign=post&utm_medium=web",
+    content: `Someone needed my help with an essay.
+I sat down, gave it my all, as I always try to do.
+Sent it to him after a couple days, he came back and said “AI Checker says only 10% is human written”.
+I was livid.
+This was one moment I could use AI but I absolutely refused to do so, and why?
+
+I can.
+
+I treat everything like a system, cause every outcome is a downstream of one.
+We went back and forth and I even used a different “AI checker website” to show him and even though some still said “AI generated” the results varied. 50%, 10%, 20%. I hoped this was enough to tell him that these things aren’t reliable.
+He never paid me my remaining fee, and never got his reply after that.
+
+When you write and ensure all punctuations are good, proper spellings and perfect work, I think you can expect AI to tell you only it can do that. It is a tool trained to detect a lack of human noise and flag it.
+
+Why would he think that in the first place?
+
+We have become a generation of humans who do not trust one another
+
+Trust is collapsing everywhere.
+Not just between writers and clients. Everyone.
+Friends are like, “I trust am gan, but....” Why’s there a but?
+People are now very single. Everyone is second guessing potential partners, me included. Conversations where I am super calculative when I should just be me, all because I have trust issues.
+People already together, couples, married or not, live on the edge. In Nigeria we say "breakfast na national cake." Heartbreak. Betrayal. Everyone gets a portion eventually. Nobody is exempt.
+
+As an independent developer, when I apply for freelance work, you get the comments, “I want an agency”. All it takes to call yourself an agency is a flyer, a business name, and a portfolio website.
+
+The quality of work is identical. But the human is not trusted.
+
+Voter turnout in democratic systems of government across the world has reduced in the past decade.
+Voters don’t turn out because they don’t have a reason to vote. Previous governments have been bad, corruption means votes will be rigged, and people don’t have hope anymore
+
+Where we are right now, is simply the downstream of a system.
+Technology has helped in significantly changing the world. But it has done its best in accelerating the decay. When a machine can replicate human effort perfectly, humans stop believing other humans did the work.
+Someone experiences heartbreak, we say “na you dull am o“ .What do we then expect from the the same person next time, or someone who just sees the post, hears about it and is just growing up. “he no go dull am“.
+
+Contracts are signed, people go ahead and find loopholes.
+
+And Leadership.
+Government is bad. Corruption is widespread.
+“I now understand corruption” is not a statement I ever thought I could hear.
+But I mean, its a norm in Nigeria.
+People do not trust the government to do anything, if it does not align with their interest, they will not do it. Everybody is now in a state of rest.
+Tired. Exhausted.
+
+And the tools we have built to help ourselves as humans has simply catalised the rot further.
+
+Relationships. Commerce. Governance. Everything that requires belief in another person starts breaking down.
+Everything.
+People do not trust governments.
+Businesses do not trust employees.
+Clients and workers?
+Friends, lovers?
+Look around you.
+We are already paying for it.
+
+I got tired of waiting for trust to return on its own.
+
+Not because I am optimistic. Because I am a builder. Every problem has a structure beneath the surface. And if the surface problem is that humans no longer believe each other, the structural problem is that we have no way to prove ourselves anymore.
+
+That is the gap I decided to fill.
+I am building Provance.
+Keystroke metadata. Proof of process. Not just for writers. For designers. Developers. Anyone whose work can be accused of being machine-generated.
+V1 is the browser extension. The vision is bigger.
+
+Trust isn’t dead.
+It just requires infrastructure now.
+
+I just wonder if our selfishness and moral decadence will allow us to build it.
+Or we are the very rot we hope to outbuild.`,
+  },
+  
+
+{
     id: "shrinking",
     title: "Shrinking",
     theme: "Systems Thinking",
