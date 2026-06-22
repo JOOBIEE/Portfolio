@@ -5,6 +5,15 @@ import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { proofStrip } from "@/data/proofStrip";
 
+type ProofItem = {
+  label: string;
+  hook: string;
+  title: string;
+  path: string;
+  description?: string;
+  external?: boolean;
+};
+
 export default function ProofStrip() {
   const router = useRouter();
 
@@ -16,7 +25,7 @@ export default function ProofStrip() {
     }
   };
 
-  const items = [
+  const items: ProofItem[] = [
     proofStrip.systems,
     proofStrip.narratives,
     proofStrip.perception,
@@ -52,12 +61,7 @@ export default function ProofStrip() {
         {items.map((item, i) => (
           <motion.button
             key={item.label}
-           onClick={() =>
-  handleClick(
-    item.path,
-    Boolean("external" in item && (item as { external?: boolean }).external)
-  )
-}
+            onClick={() => handleClick(item.path, item.external)}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 + i * 0.08, duration: 0.4 }}
@@ -102,7 +106,7 @@ export default function ProofStrip() {
               {item.hook}
             </p>
 
-            {"description" in item && (
+            {item.description && (
               <p
                 className="text-small"
                 style={{
