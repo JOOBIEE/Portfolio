@@ -52,12 +52,12 @@ export default function ProofStrip() {
         {items.map((item, i) => (
           <motion.button
             key={item.label}
-            onClick={() =>
-              handleClick(
-                item.path,
-                "external" in item ? item.external : false
-              )
-            }
+           onClick={() =>
+  handleClick(
+    item.path,
+    Boolean("external" in item && (item as { external?: boolean }).external)
+  )
+}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 + i * 0.08, duration: 0.4 }}
