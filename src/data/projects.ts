@@ -15,6 +15,7 @@ export type Project = {
   liveDemo?: string;
   image?: string;
   architectureDiagram?: string;
+  result?: string;
 };
 
 export const projects: Project[] = [
@@ -237,6 +238,48 @@ liveDemo: "https://alert-pioneerplumbers.netlify.app/"
     "To give Nigerian and African businesses a simple, affordable alternative to paper-based asset registers — turning every piece of office equipment into a scannable, trackable digital record accessible from any phone camera.",
   github: "https://github.com/JOOBIEE/Infratag",
   liveDemo: "#",
+},
+
+{
+  id: "forex-lead-system",
+  title: "Forex Lead Intelligence Bot",
+  image: "/forexbot.png",
+  architectureDiagram: "/forexbotarch.png",
+  tagline: "From First Message to Qualified Lead. Automatically.",
+  status: "active",
+  year: "2026",
+  tags: [
+    "Automation",
+    "Lead Generation",
+    "Telegram Bot",
+    "Node.js",
+    "Telegraf",
+    "Google Sheets",
+    "PM2",
+    "VPS",
+  ],
+  problem:
+    "A forex training brand was losing potential students to slow response times and unstructured follow-up. Leads contacted the business across channels, received late or no replies, and moved on. There was no system to capture, qualify, or organise inbound interest — and no way to know what courses to build for which audience.",
+  approach:
+    "Built an automated onboarding and lead intelligence system via Telegram. The bot introduces the brand, walks each prospect through a structured intake flow — collecting name, country, region, broker, and experience level — and categorises every lead into a database by shared attributes. The client receives an immediate Telegram notification for each new lead and a live Google Sheet organised by country, broker, and expertise level for structured follow-up and course planning.",
+  systemDesign:
+    "Built with Node.js and Telegraf, deployed on a VPS via PM2 for persistent uptime. The bot manages conversation state across multi-step intake flows, validates responses at each stage, and writes structured lead data to Google Sheets via the Sheets API. Leads are automatically grouped by country, broker, and expertise level so the client can identify audience segments and personalise outreach without manual sorting.",
+  techStack: [
+    "Node.js",
+    "Telegraf",
+    "PM2",
+    "VPS",
+    "Google Sheets API",
+    "Telegram Bot API",
+  ],
+  challenges:
+    "Managing conversation state across multi-step user flows in a stateless bot environment required careful session handling to ensure each user moved through the intake sequence correctly regardless of when or how they responded. Structuring the Google Sheet output so leads were automatically categorised rather than appended to a flat list required designing the write logic around segment grouping rather than simple row insertion.",
+  whyItExists:
+    "To eliminate the gap between inbound interest and structured follow-up for a forex training brand — turning every Telegram inquiry into a qualified, categorised lead the client can act on immediately with the right offer.",
+  result:
+    "The bot captured leads that would have been lost to slow response times. Categorised data — by country, broker, and expertise level — allowed the client to personalise outreach and design courses for specific audience segments. 5 clients converted in the first week of deployment. None had converted in the entire month of May.",
+  github: "",
+  liveDemo: "",
 },
 
 ];
