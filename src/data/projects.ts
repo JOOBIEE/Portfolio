@@ -243,10 +243,10 @@ liveDemo: "https://alert-pioneerplumbers.netlify.app/"
 {
   id: "forex-lead-system",
   title: "Forex Lead Intelligence Bot",
-  image: "/forexbot.png",
+  image: "forexbot.png",
   architectureDiagram: "/forexbotarch.png",
   tagline: "From First Message to Qualified Lead. Automatically.",
-  status: "active",
+  status: "live",
   year: "2026",
   tags: [
     "Automation",
