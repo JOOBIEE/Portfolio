@@ -282,4 +282,98 @@ liveDemo: "https://alert-pioneerplumbers.netlify.app/"
   liveDemo: "",
 },
 
+{
+  id: "hostit-services",
+  title: "HostIt Services — Premium Event Staffing Website",
+  image: "hostit.jpeg",
+  architectureDiagram: "/hostitarch.png",
+  tagline: "A premium event staffing brand. Built to convert.",
+  status: "live",
+  year: "2026",
+  tags: [
+    "Next.js 15",
+    "TypeScript",
+    "Sanity CMS",
+    "Resend",
+    "Vercel",
+    "CSS Animations",
+    "Canvas API",
+  ],
+  problem:
+    "A Lagos-based event staffing company was operating entirely through word of mouth and Instagram DMs. No website, no structured booking flow, and no way to capture leads who discovered the brand and moved on without making contact. The business had no digital presence to match the quality of its service.",
+  approach:
+    "Built a full premium marketing website with an integrated booking enquiry system. The site communicates trust and elegance immediately through controlled animation, a black and white to color photo gallery, and a particle system that signals invisible coordination happening behind the scenes. Every visitor path ends at a structured booking form that captures event details, saves them to a CMS, sends a formatted email to the business owner, and opens WhatsApp with a short pre-filled message containing the booking ID.",
+  systemDesign:
+    "Built with Next.js 15 App Router and deployed on Vercel. Content including gallery photos, testimonials, and services is managed through a standalone Sanity Studio deployed at hostit.sanity.studio, giving the client full editorial control without touching code. Booking submissions hit a server-side API route that validates the payload, writes the lead to Sanity with a generated booking ID, and sends a formatted HTML email via Resend before returning a success response to the client. WhatsApp only opens after the backend confirms the submission was saved and the email was sent.",
+  techStack: [
+    "Next.js 15",
+    "TypeScript",
+    "Sanity CMS",
+    "Resend",
+    "Vercel",
+    "Canvas API",
+    "CSS Custom Properties",
+    "next/image",
+  ],
+  challenges:
+    "Sanity's latest studio version requires React 19 canary internals that conflict with Next.js 15's bundled React instance. Resolved by separating the studio into a standalone deployment rather than embedding it inside the Next.js app, eliminating the conflict entirely while giving the client a cleaner CMS URL. Building the gallery required two distinct interaction patterns on the same component: desktop hover reveals color from grayscale, mobile requires a first tap to colorize and a second tap to open the lightbox, with only one image colorized at a time across the grid.",
+  whyItExists:
+    "To give a premium Lagos event staffing brand the digital presence its service quality deserved, and to replace informal WhatsApp-only bookings with a structured system that captures every lead, stores it permanently, and notifies the business owner immediately.",
+  result:
+    "A fully deployed production website at hostit.services with CMS-managed content, an animated premium UI, a structured booking enquiry system with email notifications and WhatsApp handoff, and a standalone content studio the client can operate independently.",
+  github: "https://github.com/JOOBIEE/hostit",
+  liveDemo: "https://hostit.services",
+},
+
+{
+  id: "scout-lead-intelligence",
+  title: "Scout — Automated Lead Discovery & Website Audit Engine",
+  image: "scout.jpeg",
+  architectureDiagram: "/scoutarch.png",
+  tagline: "Find businesses. Audit their websites. Know who to contact first.",
+  status: "live",
+  year: "2026",
+  tags: [
+    "Node.js",
+    "Express",
+    "React",
+    "Prisma",
+    "SQLite",
+    "Playwright",
+    "Foursquare Places API",
+    "Docker",
+    "Railway",
+    "Vercel",
+  ],
+  problem:
+    "Finding and qualifying local business leads is manual and slow — searching directories one by one, guessing which businesses even have a website, and having no way to tell a genuinely weak prospect from a business that's already well set up online. There was no tool that could search a category and location, then automatically tell you who's worth contacting and why.",
+  approach:
+    "Built an end-to-end lead intelligence pipeline: search a business type and location, and Scout collects real businesses, discovers and verifies their websites (even when not directly listed), audits each site across SEO, trust, mobile, and conversion signals, captures desktop and mobile screenshots, and ranks every lead by priority with plain-English reasoning. Each business gets a generated outreach draft and a downloadable PDF audit report, with a lightweight CRM pipeline to track contact status from first touch to won or lost.",
+  systemDesign:
+    "Node.js/Express backend with Prisma ORM over SQLite, deployed on Railway via a custom Docker image built on Playwright's official base to guarantee a matching, working Chromium install. Business discovery runs through the Foursquare Places API with automatic pagination. A custom domain-guessing engine generates and tests likely website candidates for businesses with no listed URL, then a shared verification layer scores every website — guessed or provider-supplied — against the business's name, location, and phone number, so a low-confidence match never gets treated as ground truth. Audits combine fast Cheerio-based HTML parsing with a Playwright fallback for JavaScript-rendered pages. Searches run as background jobs with live progress polling rather than blocking requests, so a 50+ business search doesn't stall the UI. Frontend is React/Vite on Vercel, gated behind JWT-based authentication.",
+  techStack: [
+    "Node.js",
+    "Express",
+    "Prisma",
+    "SQLite",
+    "React",
+    "Vite",
+    "Playwright",
+    "Cheerio",
+    "Foursquare Places API",
+    "JWT Auth",
+    "Docker",
+    "Railway",
+    "Vercel",
+  ],
+  challenges:
+    "Google Places API required prepaid billing unavailable to standard Nigerian accounts, so the entire data layer was rebuilt on Foursquare's API instead — including a fallback domain-guessing and content-verification system to compensate for thinner website coverage. A naive 'first website that resolves' guesser produced false positives on generic business names (a venue called RSVP matching an unrelated global rsvp.com); fixed by scaling confidence based on corroborating signals like matching phone numbers and city mentions, not name matches alone. Deploying Playwright to a memory-constrained Railway environment required tuning concurrency down from local development settings and containerizing with Playwright's official Docker image after a Prisma 7 breaking change and a Dockerfile layer-ordering bug both broke early build attempts.",
+  whyItExists:
+    "To replace manual, one-by-one lead research with an automated pipeline that not only finds businesses but tells you, with evidence, which ones are actually worth contacting — turning a spreadsheet of names into a ranked, audited, contact-ready list.",
+  result:
+    "A fully deployed production tool at the live demo link below, running a real end-to-end pipeline from business discovery through website auditing, priority ranking, outreach drafting, CRM tracking, and PDF report generation — accessible from any device, gated behind authentication, and built entirely on a zero-to-minimal budget by deliberately routing around every paid API and infrastructure option encountered along the way.",
+  github: "https://github.com/JOOBIEE/Scout",
+  liveDemo: "https://scout-gamma-gray.vercel.app/",
+},
+
 ];

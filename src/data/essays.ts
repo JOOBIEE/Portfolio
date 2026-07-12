@@ -11,6 +11,120 @@ export type Essay = {
 };
 
 export const essays: Essay[] = [
+
+  {
+    id: "scandal",
+    title: "Scandal",
+    theme: "Systems Thinking",
+    readingTime: "2 min read",
+    publishedDate: "June 2026",
+    keyInsight:
+      "Skills Gap, Credentials without capability",
+    tags: ["Infrastructure", "Education", "Systems Thinking"],
+    substackUrl: "https://open.substack.com/pub/thehumanalgorythm/p/scandal?r=5zq6aw&utm_campaign=post&utm_medium=web",
+    content: `CSC 201. Fortran.
+
+I wrote code on paper. With a pen. In an examination hall. In 2021.
+
+A person writing on a notebook with a pen
+
+I have a degree in Physics and Electronics. Everything I know about electronics, I taught myself. Firmware development. Self taught. Web development. Self taught. Writing. That one came from reading obsessively, not from any lecturer who graded my essays.
+
+The university handed out a paper.
+
+I gave myself the capability.
+
+I am not exceptional. I am just one of the ones who refused to wait for a system that was never going to deliver. The tragedy is not that I struggled. The tragedy is that the most important things I know, I learned despite the system. Not because of it.
+
+That is not a personal failure.
+
+That is a consistent output.
+
+According to the NBS, Nigeria produces 2.1 million graduates every year. A 2023 industry survey (Proten International) found that 60% of employers say those graduates are not job-ready. 85% enter the workforce with no practical digital skills. 55% end up working in fields entirely unrelated to what they studied.
+
+My story is not the exception.
+
+It is the product.
+
+The system is not broken. A broken system produces inconsistent results. This system produces the same result every year, at scale, with remarkable precision.
+
+Credential without capability.
+
+That is the design working exactly as intended.
+
+The British built this system.
+
+Not for us. For themselves.
+
+They needed obedient clerks for the colonial administration. People who could follow instructions, copy documents, and reproduce information accurately. Critical thinking was not a feature. It was a threat.
+
+The British left in 1960.
+
+The curriculum was not informed.
+
+And nobody who inherited the system had any incentive to change it. Obedient graduates become obedient workers. Obedient workers do not ask uncomfortable questions. The colonial tool became a local convenience.
+
+So we kept it.
+
+Sixty-five years later, the student who questions the lecturer is still the problem. The student who copies the textbook verbatim still gets the A. We stopped asking students to think somewhere between independence and now, and called the result an education system.
+
+It shows.
+
+YCEE called it the Olodo Uprising. A generation that celebrates ignorance. Turns low-effort silliness into content. A skit page with 4 million followers. Every video the same. Someone falls. Someone screams. Something stupid performed on camera for thirty seconds. No thought required from the creator. None expected from the audience.
+
+That is not a social media problem.
+
+That is the market the classroom built.
+
+When you spend sixteen years in a system that rewards reproduction over reasoning, you produce a population that cannot differentiate between information and noise.
+
+The classroom killed curiosity.
+
+Social media monetised what was left.
+
+Every solution has simply attacked the symptom, never the system.
+Graduates unemployed? Build more universities.
+
+Now more people are unemployed. But the certificates are fresher.
+
+Employers say graduates are useless? Form a committee. The committee will meet, deliberate and produce a report. The report will be submitted. It will sit on a shelf next to the last report. Both will gather dust next to the one before that.
+
+Siwes exists to give students real work experience. Students spend it making photocopies and fetching coffee. They return to campus having experienced the workplace the way a tourist experiences a country. Present, blind to everything.
+
+Nobody redesigns the systems. Redesigning requires admitting the system was wrong.
+and institutions protect themselves before they serve their purpose.
+
+Meanwhile the cost accumulates quietly.
+
+Not in statistics. In people.
+
+The engineer who cannot engineer. The developer who cannot develop. The writer who cannot write. All holding certificates that say otherwise.
+
+Nigeria loses an estimated $14 billion annually to this skills gap. But that number is too large to feel. So feel it smaller.
+
+Feel it in the graduate who spent four years and every naira his family had, and cannot find work in his field.
+
+Feel it in the employer who spends the first six months of every hire unteaching what the university spent four years teaching.
+
+Feel it in the country that keeps producing people it cannot absorb and calling it development.
+
+I wrote Fortran on paper in 2021.
+
+I taught myself everything that actually works.
+
+The system handed me a paper.
+
+I built everything else despite it.
+
+That should not be the success story.
+
+That should be the indictment.
+
+The miracle is not that some of us figured it out anyway.
+
+The scandal is that we had to.`,
+  },
+
   {
     id: "trust",
     title: "Trust",
