@@ -13,10 +13,10 @@ export const proofStrip = {
     path: "https://open.substack.com/pub/thehumanalgorythm/p/recording?r=5zq6aw&utm_campaign=post&utm_medium=web",
     external: true,
   },
-  perception: {
-    label: "Perception",
-    hook: "Investors from Ghana want Exploreland Farms to be their knowledge partner in Nigeria.",
-    title: "Exploreland Farms",
-    path: "/perception?case=exploreland-farms",
-  },
+perception: {
+  label: "Perception",
+  hook: "HostIt Services now receives unprompted bookings from clients who found them online — without a single referral.",
+  title: "HostIt Services",
+  path: "/perception?case=hostit-services",
+},
 };

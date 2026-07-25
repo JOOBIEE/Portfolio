@@ -20,107 +20,38 @@ export type CaseStudy = {
 };
 
 export const caseStudies: CaseStudy[] = [
-  {
-  id: "exploreland-homes",
-  title: "Exploreland Homes",
-  category: "Lifestyle Branding",
+ {
+  id: "hostit-services",
+  title: "HostIt Services",
+  category: "Brand Identity & Digital Presence",
   year: "2026",
-  tags: ["Aspirational Content", "Real Estate", "Emotional Positioning"],
+  tags: ["Event Services", "Brand Identity", "SEO", "Landing Page", "Google Business"],
   summary:
-    "Transformed property marketing from listing-focused communication to lifestyle-driven emotional storytelling.",
+    "Took HostIt Services from a WhatsApp-only referral operation to a structured digital brand with a converting website, optimized search presence, and consistent visual identity.",
 
   before: {
-    label: "Property listing brand",
+    label: "WhatsApp-dependent service brand",
     description:
-      "Content focused on features, availability, and generic real estate messaging. Visuals were appealing but lacked emotional depth or narrative consistency. Audience saw houses, not a lifestyle.",
+      "HostIt operated almost entirely through word of mouth and WhatsApp. No website, no consistent visual identity, no digital presence beyond Instagram. Potential clients had no structured way to discover, assess, or book the service. Every inquiry required manual back-and-forth conversation before a booking could happen.",
   },
 
   intervention: {
     steps: [
-      "Shifted messaging from features to lived experience and emotional outcomes",
-      "Introduced relatable scenarios tied to Nigerian daily life (traffic, rain, weekends, family moments)",
-      "Balanced aspirational luxury with humor and realism to improve relatability",
-      "Standardized tone to feel premium but conversational, not overly corporate",
-      "Aligned visuals with storytelling to create cohesive mood-driven content",
+      "Developed a full brand identity — logo, color palette, typography, and visual language applied consistently across all touchpoints",
+      "Built a conversion-focused landing page structured around the three things a visitor needs to believe before booking: competence, evidence, and access",
+      "Implemented SEO foundations on the website to improve discoverability for event service searches",
+      "Set up and optimized a Google Business profile to establish local search presence",
+      "Optimized Instagram bio and profile to route visitors directly to the website for bookings",
+      "Designed the site so clients could book directly without needing a DM conversation first",
     ],
   },
 
   after: {
-    label: "Lifestyle-driven real estate brand",
+    label: "Structured brand with active digital conversion",
     description:
-      "Audience now connects properties to personal aspiration and everyday experience. Content feels human, relatable, and premium. Homes are perceived as environments, not just structures.",
+      "HostIt now has a consistent brand identity across every touchpoint. The website handles initial discovery, builds trust through proof and service clarity, and converts visitors into bookings without manual intervention. The Google Business profile and SEO work has increased visibility in local search.",
   },
 
   result:
-    "Improved audience connection. Stronger brand recall. Content now influences desire, not just awareness.",
+    "Following the rebrand and website launch, new contacts began approaching the client saying they had seen her services and would reach out — unprompted, without referral. Instagram now drives direct bookings, with clients visiting the website and completing bookings independently. The client no longer relies solely on word of mouth to generate new business.",
 },
-  {
-  id: "imagesxpert",
-  title: "ImagesXpert Media",
-  category: "Creative Identity",
-  year: "2026",
-  tags: ["Visual Storytelling", "Photography", "Brand Personality"],
-  summary:
-    "Shifted photography brand from service provider to personality-driven visual experience with strong narrative identity.",
-
-  before: {
-    label: "Photography service brand",
-    description:
-      "Content focused on showcasing images without a consistent narrative or brand personality. Posts highlighted output but did not communicate experience or emotional value.",
-  },
-
-  intervention: {
-    steps: [
-      "Introduced carousel storytelling formats to create narrative flow across posts",
-      "Developed a distinct brand voice blending premium tone with humor and relatability",
-      "Shifted focus from 'photos' to 'moments and experience'",
-      "Structured content into themes: cinematic, emotional, and playful",
-      "Integrated subtle humor and real-life scenarios to humanize the brand",
-    ],
-  },
-
-  after: {
-    label: "Personality-driven visual brand",
-    description:
-      "Content now feels alive, engaging, and story-driven. Audience connects with the experience behind the visuals, not just the final output. Brand stands out through tone and consistency.",
-  },
-
-  result:
-    "Higher engagement. Stronger audience connection. Brand now communicates experience, not just service.",
-},
-{
-  id: "exploreland-farms",
-  title: "Exploreland Farms",
-  category: "Narrative Positioning",
-  year: "2026",
-  tags: ["Storytelling", "Agriculture", "Content Strategy"],
-  summary:
-    "Repositioned agriculture from basic farming to intelligent, narrative-driven environmental and economic storytelling.",
-
-  before: {
-    label: "Generic agriculture brand",
-    description:
-      "Content focused on basic farming tips and awareness. Messaging was informational but not differentiated. Audience engagement was low and content felt interchangeable with other agriculture pages.",
-  },
-
-  intervention: {
-    steps: [
-      "Shifted content from tips-based to narrative-driven storytelling rooted in real Nigerian context",
-      "Introduced 'Reality Check' framing to anchor posts in practical, data-backed insights",
-      "Connected farming to economics, climate, and long-term value rather than just production",
-      "Developed a distinct writing voice combining technical clarity with cultural familiarity",
-      "Structured weekly content into themes: education, reflection, and relatability",
-    ],
-  },
-
-  after: {
-    label: "Authoritative agricultural voice",
-    description:
-      "Investors from Ghana want Exploreland Farms to be their knowledge partner in Nigeria. Planting 5,000 trees across West Africa, Engagement was sparse — one comment across five posts. Now averaging five quality comments per post.",
-  },
-
-  result:
-    "Stronger brand identity. Increased perceived expertise. Content now drives conversation, not just visibility.",
-},
-  
-];
