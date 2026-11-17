@@ -376,4 +376,157 @@ liveDemo: "https://alert-pioneerplumbers.netlify.app/"
   liveDemo: "https://scout-gamma-gray.vercel.app/",
 },
 
+{
+  id: "phub-ink-link-shortener",
+  title: "phub.ink — Free Link Shortener, QR Studio & Privacy-First Analytics",
+  image: "phub.jpeg",
+  architectureDiagram: "/phubarch.png",
+  tagline: "Shorten links. Make QR codes. Count visits without tracking people.",
+  status: "live",
+  year: "2026",
+  tags: [
+    "TypeScript",
+    "Cloudflare Workers",
+    "Hono",
+    "Cloudflare D1",
+    "Vite",
+    "Tailwind CSS",
+    "Turnstile",
+    "Resend",
+    "Vitest",
+    "QR Codes",
+  ],
+  problem:
+    "Link shorteners and QR tools hide the basics behind tiny free plans: a handful of links and QR codes a month, ads on every link, and paid QR codes that quietly stop working when a subscription lapses. Their analytics usually rely on stored IP addresses and tracking cookies, and a free shortener is also a magnet for phishing and spam, so most small tools either skip safety entirely or lock everything down. There was no free, open, privacy-respecting option that stayed honest about its limits and still took abuse seriously.",
+  approach:
+    "Built and launched a complete free, open-source (AGPL-3.0) link platform with no monthly caps and fair-use daily limits. Users create short links with random or custom endings and see clicks, unique visitors, QR scans, countries, devices, browsers and referring sites in a chart, with a CSV export. A QR studio makes codes for links, text, Wi-Fi and email, either tracked (a short link that counts scans and can change destination without reprinting) or plain (the address is baked in and works forever, even without the service), with built-in scannability checks and SVG and PNG export. Sign-in is passwordless through a one-time emailed link, and every account can download all of its data or delete itself. A public report page, an admin console with an audit log, and a site-wide kill switch handle abuse.",
+  systemDesign:
+    "TypeScript Worker on Cloudflare using the Hono framework, with a D1 (SQLite) database built from numbered migrations and a static multi-page front end (Vite and Tailwind) served by Cloudflare before the Worker runs. Redirects are tiny and fast: the click is logged in the background with waitUntil, so a database hiccup can never slow down or break a redirect. Unique visitors are counted with an HMAC-SHA-256 of the visitor's IP and browser string using a random daily salt that is deleted after two days, so no IP address is ever stored and old fingerprints can never be recreated. A nightly cron job summarises each day into small totals tables before raw clicks older than 90 days are deleted. Sign-in uses 256-bit tokens stored only as SHA-256 hashes and consumed atomically with a single UPDATE ... RETURNING, behind a confirmation button so email scanners cannot burn the link. Security is layered: an enforced per-page Content Security Policy starting from default-src 'none' with no inline scripts or styles, security headers set in both the Worker and the static files, a CSRF origin check, Turnstile verified before any email budget is spent, fixed-window rate limits stored in D1, tighter daily caps for new accounts, and a domain blocklist enforced at creation, edit and click time that fails closed. Reports are always reviewed by a human, never acted on automatically. Email goes through Resend from a verified subdomain, and the site runs on a custom domain with DNS on Cloudflare.",
+  techStack: [
+    "TypeScript",
+    "Cloudflare Workers",
+    "Hono",
+    "Cloudflare D1 (SQLite)",
+    "Vite",
+    "Tailwind CSS",
+    "Chart.js",
+    "qr-code-styling",
+    "Cloudflare Turnstile",
+    "Resend",
+    "Vitest",
+    "Wrangler",
+  ],
+  challenges:
+    "Everything had to fit inside free-tier limits, so the design was built around them: D1's daily row-write cap puts an estimated ceiling near 30,000 tracked clicks a day, and the email provider's daily cap forced a global sign-in email budget kept safely under it, documented honestly instead of promising 'unlimited'. A strict Content Security Policy meant no inline code anywhere, so every interface is built with DOM APIs, and restyling the Worker's own sign-in pages needed a narrow per-page policy rather than loosening the rule globally, with a test that parses the headers file and fails the build if any policy allows unsafe-inline, wildcards or the wrong hosts. A subtle bug taught how security headers interact: a no-referrer policy made browsers send Origin: null on the sign-in form post, so the site's own CSRF check rejected real users until the policy was corrected and covered by a test. Static files are served before the Worker runs, so a short link named like a page could never work, which led to a reserved-slug list and a lesson in knowing the platform's request order.",
+  whyItExists:
+    "To prove a link shortener can be genuinely free, honest about its limits and private by design: no monthly caps, no tracking cookies, no stored IP addresses, QR codes that do not die, and open-source code so every one of those claims can be checked rather than trusted.",
+  result:
+    "A live production service at phub.ink on its own domain, running a full pipeline from passwordless sign-in through link creation, redirects, privacy-first analytics, a QR studio, abuse protection and an admin console, with published privacy, terms and security policies, a data export and real account deletion, and more than 400 automated tests plus integration and smoke test scripts. It runs entirely on free tiers, so the only unavoidable running cost is the domain name.",
+  github: "https://github.com/JOOBIEE/ph.ink-mirror",
+  liveDemo: "https://phub.ink",
+},
+
+{
+  id: "dga-governance-advisory-website",
+  title: "Digital Governance Africa — Advisory Website with an AI Assistant",
+  image: "dga.jpeg", 
+  architectureDiagram: "/dgaarch.png", 
+  tagline:
+    "A credible, interactive home for an African digital-governance advisory firm.",
+  status: "live",
+  year: "2026",
+  tags: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Vercel Edge Functions",
+    "Google Gemini",
+    "Web3Forms",
+    "cPanel",
+    "SEO",
+  ],
+  problem:
+    "Digital Governance Africa advises governments, regulators and enterprises on responsible AI, data governance and institutional transformation, and its website had to carry that credibility. The earlier version had little imagery or interaction, copy that no longer matched the organisation's final messaging, and enquiry forms that did not yet deliver messages. It also had to be handed to a new maintainer cleanly: the code, the hosting and the AI service sat across several accounts, and visitors' enquiries and chat questions were personal data that needed careful handling.",
+  approach:
+    "Took over an incomplete build, brought every page in line with the client's approved copy, and delivered the production launch.Built a website assistant that answers visitors' questions and the search-engine groundwork: per-page titles and descriptions, a sitemap, a robots file and Search Console verification. It was delivered with a written project report and a recurring maintenance plan.",
+  systemDesign:
+    "A React 19 and TypeScript single-page app built with Vite and styled with Tailwind CSS 4, with React Router handling navigation and Framer Motion handling animation. Most copy lives in typed data files (services, programmes, articles, FAQs, navigation and contact details), so routine edits touch one file. The build is static and is uploaded to Apache shared hosting (cPanel), where a rewrite rule sends unknown paths to the app so refreshes and deep links work while real files such as the sitemap are served untouched. The website assistant is a small Vercel Edge Function: the browser posts the conversation, the function calls Google's Gemini Flash model with a short brief about the organisation, retries once on a busy or rate-limited response, then falls back to the lighter Flash-Lite model, and returns a short reply. The Google key lives only as a server-side environment variable, and the function accepts requests only from the site's own domain. Forms post to Web3Forms, which emails each submission to the organisation's mailbox, and the app shows a clear error if delivery fails. The homepage background video is offered in AV1 and H.264 with a still poster, pauses when off screen, and is skipped for visitors on data saver or reduced motion. Per-page titles and descriptions come from React 19 metadata tags, and the site launched with no analytics or advertising trackers.",
+  techStack: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "React Router",
+    "Framer Motion",
+    "React Icons",
+    "Vercel Edge Functions",
+    "Google Gemini API",
+    "Web3Forms",
+    "Apache / cPanel",
+    "GitHub",
+    "Google Search Console",
+  ],
+  challenges:
+    "The site and the assistant live on different hosts, so the chat call had to change from a same-origin path to the function's absolute address, with a CORS allow-list limited to the site's domain and proper handling of the browser's preflight request. Single-page routing on Apache needed a rewrite rule that sends unknown paths to the app but leaves real files alone, and the same rule is why a missing verification file returned the app's own 404 page, which Google reported as wrong content rather than missing. The forms were inherited as stubs that showed a success message without sending anything, so they were rewired to real delivery with validation and visible errors, then checked end to end. Free-tier AI needed defensive design: busy and rate-limit responses are retried and downgraded to a lighter model, the interface shows a polite fallback message, and the project report documents the remaining limits plainly instead of promising unlimited capacity. In the Programmes cards, titles of different lengths pushed text out of line until the text area was given a fixed height on desktop, and a selection ring that stuck out a few pixels caused horizontal overflow on phones until it was reduced and clipped.",
+  whyItExists:
+    "To give an organisation that advises others on trust and accountability a website that practises the same: clear about what it does and does not claim, careful with visitors' data, usable by keyboard and reduced-motion visitors, and documented well enough that a successor can maintain it. Handover was a design goal rather than an afterthought, with version-controlled code, an inventory of accounts and a written maintenance routine.",
+  result:
+    "Live at thedigitalgovernance.com over HTTPS with seven main pages, three published articles, working enquiry and newsletter forms, a website assistant, and a sitemap submitted to Google Search Console, plus a written project report and a recurring maintenance plan. Every page now runs on the client's approved copy.",
+  github: "", // client project: repository intentionally not linked
+  liveDemo: "https://thedigitalgovernance.com",
+},
+
+{
+  id: "westhub-ad-landing-page",
+  title: "WestHub Healthcare: Ad Landing Page and Production Recovery",
+  image: "westhub.jpeg",
+  architectureDiagram: "/westhubarch.png",
+  tagline:
+    "A conversion-focused landing page, built into an existing Laravel site for a home care agency's paid ad campaign.",
+  status: "live",
+  year: "2026",
+  tags: [
+    "Laravel",
+    "PHP",
+    "Livewire",
+    "Blade",
+    "Tailwind CSS",
+    "Vite",
+    "MySQL",
+    "Google Tag Manager",
+    "Meta Pixel",
+    "cPanel",
+    "GitHub",
+  ],
+  problem:
+    "WestHub Healthcare is an Illinois home care and nursing agency with a Laravel website and a separate admin dashboard. It planned a paid social campaign around a free first two weeks of care and needed a landing page for the ads to point to. The page had to fit into the existing site rather than sit beside it, so enquiries reached the same dashboard and the same team. It also had to work with whatever advertising tags the ad manager chose, whom I did not yet know. The ad page would send paid traffic to a site that already had three broken service links, and the project was handed over to me with the code, hosting and deployment spread across several accounts.",
+  approach:
+    "Read the existing code first (routes, layout, the booking form and the enquiry model), then added the page inside the application instead of building a separate tool. Studied the reference page the client liked and borrowed its structure (one outcome-led headline, one action, proof, three benefits, the same button again) while rewriting the content for families looking for care. Built and tested locally, shipped through the project's own pull request and deployment routine, and checked the live page with a real test submission, which was then removed. Delivered a one-page plain-language report for the owner, the project manager and the ad manager.",
+  systemDesign:
+    "A Laravel 11 application with Blade views, a Livewire 4 form component, Tailwind CSS 3 and Vite, deployed to cPanel from Git. The landing page has its own stripped-down layout with no site menu, so visitors have one action. The form is a Livewire component that saves each request to the site's existing appointments table with a source label, so leads appear in the admin dashboard with no new tables. Ad tracking values from the URL (UTM labels, Facebook and Google click IDs, the landing address and the referrer) are read once when the page loads, held in a locked property so the browser cannot alter them, and stored with the lead. The lead is saved first, and the confirmation email is sent afterwards as a best-effort step that can fail without the visitor seeing an error. A hidden field blocks most spam. After a submission the visitor is redirected to a thank-you page that fires a single conversion event (generate_lead, plus Meta Lead if a direct pixel is used) only when it follows a real submission, so a refresh is not counted twice. The layout loads Google Tag Manager and an optional Meta Pixel from configuration values, with a stack for any other tag, so the ad manager can add pixels without code changes. The page is marked noindex, and no names, phone numbers or health details are sent to ad platforms.",
+  techStack: [
+    "Laravel",
+    "PHP",
+    "Livewire",
+    "Blade",
+    "Tailwind CSS",
+    "Vite",
+    "MySQL",
+    "Google Tag Manager",
+    "Meta Pixel",
+    "Apache / cPanel Git deployment",
+    "GitHub",
+  ],
+  challenges:
+    "The page had to reuse the site's enquiry system, so the form was built on the existing appointments model and given its own source label and a metadata field for the ad labels. Livewire sends its later requests without the page's query string, so the UTM and click values are captured when the component first loads and kept in a locked property. The site's existing enquiry form saved and emailed in one step, so a mail failure showed an error even though the lead had been saved, which invites duplicates; the landing form saves first and treats the email as secondary. Because the production server's deployment copies pre-built assets and never runs the front-end build, the compiled CSS and JavaScript had to be committed with the change. The server's Git tool could not read the client's private repository, so deployment was moved to a separate repository with a read-only, single-repository access token. Going live exposed a hidden configuration problem: the server had been running on a cached copy of its settings, while a second environment file held an old database user, an old database name and a placeholder admin address. Refreshing the cache made the site read the stale file, so I traced which file the application actually loaded, corrected the values in both the website and the admin, and verified each connection separately. Locally, the project's split database setup would not migrate on one machine, so I pointed everything at a single local database to mirror the server. The review also found three homepage buttons that linked to pages that did not exist, which I fixed before ads could send traffic to them.",
+  whyItExists:
+    "To let a small care agency run paid ads without building a second system: one page, one clear action, every lead landing in the dashboard the team already uses, and every ad click traceable to its source. Handover was part of the brief, so the work ended with a plain-language report that a non-technical owner and an ad manager can both follow, a list of remaining risks, and a repeatable way to release changes safely.",
+  result:
+    "Live on the client's site, with a landing page, a thank-you page and a form tested end to end on production: a test lead saved with its ad labels, appeared in the admin, and was removed. Three broken service links on the homepage now work. The page is ready for the ad manager's tracking tags and the campaign's launch. The work included a written project report and a list of follow-up items for the owner.",
+  github: "", // client project: repository intentionally not linked
+  liveDemo: "https://westhubhealthcare.com",
+},
+
 ];
